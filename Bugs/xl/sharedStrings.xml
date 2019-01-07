@@ -1,0 +1,795 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<sst xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" count="1495" uniqueCount="437"><si><t>Summary</t></si><si><t>Issue Type</t></si><si><t>Priority</t></si><si><t>Labels</t></si><si><t>Beskrivelse</t></si><si><t>Custom field (Epic Link)</t></si><si><t>Custom field (Full Stack Team)</t></si><si><t>Bug: Form 1 - Cells in "Regler"  and "Gruppering" are not changed to default when pressing "Ny besvarelse"</t></si><si><t>UserStory</t></si><si><t>High</t></si><si><t>Design</t></si><si><t>Beskrivelse:Når jeg som bruger vælger "Ny Besvarelse" forventer jeg at indstillinger i Regler og Grupper sættes tilbage til default
+
+Aktuel output: Data i de to ark "Regler" og "Grupper" er upåvirket. Her vil jeg som bruger forvente at alle regler og deres konfiguration bliver nulstillet, og ikke kun SpmSvar arket som tilfældet er nu.
+Testcase: 1.03
+Testcase: 1.04</t></si><si><t>DOA-5759</t></si><si><t>Retracer</t></si><si><t>Bug: Form 1- Cell in population is changed when pressing "Tidligere Besvarelse", it should not be changed</t></si><si><t>Beskrivelse : Når jeg som bruger vælger "Eksisterende Besvarelse" forventer jeg at indstillinger i Population forbliver uændret fra den eksisterende konfiguration
+Vores Input: In Population(Fodringtype: VAASKAT)
+Forventet output:  In Population(Fodringtype: VAASKAT)
+Aktuel output:  In Population(Fodringtype: "")
+Testcase:  1.09</t></si><si><t>Bug: Form 2 - Foranstillede 0'er på fordringshaverID i Populationsarket</t></si><si><t>Bekrivelse:Jf. kravet forventes det at spørgeskemaet sætter foranstillede nuller foran et indtastet fordringshaverid på færre end 4 cifre. Et 4 cifret tal forventes i Populations arket
+
+Testcase 2.01
+Vores input: FordringshaverID =  1
+Forventet output: FordringshaverID =  0001 i Population arket
+Aktuel output: Fejl besked
+
+Testcase 2.03
+Vores input: FordringshaverID =  12
+Forventet output: FordringshaverID =  0012 i Population arket
+Aktuel output: Fejl besked
+
+Testcase 2.05
+Vores input: FordringshaverID =  123
+Forventet output: FordringshaverID =  0123 i Population arket
+Aktuel output: Fejl besked</t></si><si><t>Bug: Form 2 - Foranstillede 0'er på fordringshaverID i SpmSvararket</t></si><si><t>Bekrivelse:Jf. kravet forventes det at spørgeskemaet sætter foranstillede nuller foran et indtastet fordringshaverid på færre end 4 cifre. Et 4 cifret tal forventes i SpmSvar arket
+
+Testcase 2.02
+Vores input: FordringshaverID =  1
+Forventet output: FordringshaverID =  0001 i SpmSvar arket
+Aktuel output: Fejl besked
+
+Testcase 2.04
+Vores input: FordringshaverID =  12
+Forventet output: FordringshaverID =  0012 i SpmSvar arket
+Aktuel output: Fejl besked
+
+Testcase 2.06
+Vores input: FordringshaverID =  123
+Forventet output: FordringshaverID =  0123 i SpmSvar arket
+Aktuel output: Fejl besked</t></si><si><t>Bug: Form 2 - FordringshaverID kaldes fordringsID i formen</t></si><si><t>Low</t></si><si><t xml:space="preserve">Beskrivelse: FordringshaverID kaldes fordringsId i formen, hvilket ikke er det samme. </t></si><si><t>Bug: Form 2 - FordringshaverID kaldes fordringsID i fejlbesked</t></si><si><t>Beskrivelse: FordringshaverID kaldes fordringsId i fejlbesked når der tastes en uskyldig værdi i fordringshaverID feltet. FordringsID og FordringhaverID er ikke det samme. 
+
+Testcase 2.11
+Vores input: FordringshaverID =  blank
+Forventet output: Fejlbesked
+Aktuel output: Fejl besked men hvor der står fordringsID frem for fordringshaverID</t></si><si><t>Bug: Form 2 - En fordringstype som ikke figurerer på drop-down listen skrives til Populationsarket valideringen hvis typen er 7 karakter</t></si><si><t>Medium</t></si><si><t>Beskrivelse: Som bruger vil jeg forvente at input på 7 karakterer som ikke figurerer på listen (fx tastefejl) vil blive fanget og en advarsel vil komme frem
+
+Testcase 2.16
+Vores input: Fordringstype = LIMRDIE
+Forventet output: Fejl besked og intet gemt i Population/SpmSvar
+Aktuel output: LIMRDIE i både Population og SpmSvar. Ingen fejlbesked</t></si><si><t>Bug: Form 2 - En fordringstype som ikke figurerer på drop-down listen skrives til SpmSvar arket valideringen hvis typen er 7 karakter</t></si><si><t>Beskrivelse: Som bruger vil jeg forvente at input på 7 karakterer som ikke figurerer på listen (fx tastefejl) vil blive fanget og en advarsel vil komme frem
+
+Testcase 2.17:
+Vores input: Fordringstype = LIMRDIE
+Forventet output: Intet gemt i SpmSvar
+Aktuel output: LIMRDIE i  SpmSvar</t></si><si><t>Bug: Form 2 - En fordringstype som ikke figurerer på drop-down listen giver ikke en fejlbesked valideringen hvis typen er 7 karakter</t></si><si><t>Beskrivelse: Som bruger vil jeg forvente at input på 7 karakterer som ikke figurerer på listen (fx tastefejl) vil blive fanget og en advarsel vil komme frem
+
+Testcase 2.18
+Vores input: Fordringstype = LIMRDIE
+Forventet output: Fejl besked
+Aktuel output:  Ingen fejlbesked</t></si><si><t>Bug: Form 2 -  En fordringstype med tal består valideringen hvis typen blot er 7 karakter</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente det er muligt at angive tal som del af fordringstypen, da denne udelukkende bogstaver. Dette betyder også at værdien heller ikke opdateres i Populationsarket/SpmSvararket
+
+Testcase 2.19 - 2.20:
+Vores input: Fordringstype = LIM12IE
+Forventet output: Fejl besked og intet gemt i Population/SpmSvar
+Aktuel output: LIM12IE i både Population og SpmSvar. Ingen fejlbesked</t></si><si><t>Bug: Form 2 - Default txtModStart værdi ikke sat</t></si><si><t>Beskrivelse: Jf. kravet bør d. 1 september 2013 være default i feltet txtModStart. Det vil sige at såfremt der ikke allerede er en værdi i SpmSvar arket bør denne fremgå som 01-09-2013
+
+Testcase: 2.33
+Vores input: Intet
+Forventet output: Formen loades med modtagelseDato Start = 01-09-2013 som standard
+Aktuel output: Feltet er tomt</t></si><si><t>Bug: Form 2 - Ved indtastning af txtModSlut og ikke txtModStart indsættes txtModSlut ikke i Populationsarket</t></si><si><t>Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i Populationsarket hvor man kun indtaster modtagelseDato Slut.
+
+Testcase 2.37
+Vores input: modtagelsesdatoslut = 01-10-2018
+Forventet output: Dato gemt i Populationsarket
+Aktuel output: fejlbesked</t></si><si><t>Bug: Form 2 - Ved indtastning af txtModSlut og ikke txtModStart indsættes txtModSlut ikke i SpmSvar arket</t></si><si><t>Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i SpmSvararket hvor man kun indtaster modtagelseDato Slut.
+
+Testcase 2.38
+Vores input: modtagelsesdatoslut = 01-10-2018
+Forventet output: Dato gemt i SpmSvararket
+Aktuel output: fejlbesked</t></si><si><t>Bug: Form 2 - Modtagelsedato Slut bytter dage og månder når der printes til populationsarket</t></si><si><t>Beskrivelse: Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i Populationsarket hvor man indtaster både modtagelse start og slut
+
+Testcase: 2.41
+Vores input: ModtagelseDato Slut = 01-10-2018
+Forventet output:  ModtagelseDato Slut = 01-10-2018 i Populationsarket
+Aktuel output: 10-01-2018</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format mm-dd-yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.43 
+Vores input: ModtagelseDato start = 10-15-2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: ModtagelseDato start = 10-15-2018 i Populationsarket</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format mm-dd-yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.44  
+Vores input: Modtagelsesdato start = 10-15-2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 10-15-2018 i SpmSvar arket</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format mm-dd-yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 2.45
+Vores input: Modtagelsesdato start = 10-15-2013
+Forventet output: Fejl besked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format mm-dd-yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.46
+Vores input: ModtagelseDato slut = 10-15-2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: ModtagelseDato slut = 15-10-2018 i Populationsarket</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format mm-dd-yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.47
+Vores input: Modtagelsesdato slut = 10-15-2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 10-15-2018 i SpmSvar arket</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format mm-dd-yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 2.48
+Vores input: Modtagelsesdato slut = 10-15-2013
+Forventet output: Fejl besked 
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format dd/mm/yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.49
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: Modtagelsesdato start = 01/10/2013  i populationsarket</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format dd/mm/yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.50
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 01/10/2013  i SpmSvar arket</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format dd/mm/yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 2.51
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: fejlbesked
+Aktuel output: Ingenfejlbesked</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format dd/mm/yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.52
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: Intet printet i populationsarket
+Aktuel output: Modtagelsesdato slut = 10-01-2014  i populationsarket</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format dd/mm/yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.53
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 01/10/2014  i SpmSvar arket</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format dd/mm/yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 2.54
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format (dd month yyyy) skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat  i Modtagelsesdato slut.  Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.55
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output:  Intet printet i populationsarket
+Aktuel output: Modtagelsesdato start = 01 oktober 2013</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format (dd month yyyy) skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.56
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 01 oktober 2013</t></si><si><t>Bug: Form 2 - ModtagelseDato start med format (dd month yyyy) giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 2.57
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format (dd month yyyy) skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 2.58
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output:  Intet printet i populationsarket
+Aktuel output: Modtagelsesdato slut = 01 oktober 2014</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format (dd month yyyy) skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 2.59
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 01 oktober 2014</t></si><si><t>Bug: Form 2 - ModtagelseDato slut med format (dd month yyyy) giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 2.60
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 2 - Formen loades ikke med ikke korrektdata radioknap aktiveret når der preloades data</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 2 hvor jeg har valgt "tidligere besvarelse" i form 1, skal eventuel forrige "korrektData"  pre-loades ind i formen
+
+Testcase: 2.75
+Vores input: "Nej" i celle D5 SpmSvar
+Forventet output: Korrektdata radioknap = true
+Aktuel output: Korrektdata radioknap ikke aktiveret</t></si><si><t>Bug: Form 4 - En modtagelsesdato før 01-09-2013 bliver skrevet i Populationsarket</t></si><si><t>Beskrivelse: Jf. kravet bør det ikke være muligt at sætte en konfiguration med modtagelsesdato før d. 1/9-2013 og derfor bør værdien ikke gemmes i Populationsarket
+
+Testcase: 4.01
+Vores input: ModtagelseDato Start = 01-09-2012
+Forventet output: Intent skrives til Populationsarket
+Aktuel output: ModtagelseDato Start = 01-09-2012</t></si><si><t>Bug: Form 4 - En modtagelsesdato før 01-09-2013 bliver skrevet i SpmSvar arket</t></si><si><t>Beskrivelse: Jf. kravet bør det ikke være muligt at sætte en konfiguration med modtagelsesdato før d. 1/9-2013 og derfor bør værdien ikke gemmes i SpmSvar arket
+
+Testcase: 4.02
+Vores input: ModtagelseDato Start = 01-09-2012
+Forventet output: Intet skrives til SpmSvar arket
+Aktuel output: ModtagelseDato Start = 01-09-2012</t></si><si><t>Bug: Form 4 - En modtagelsesdato før 01-09-2013 accepteres uden besked</t></si><si><t>Jf. kravet bør der komme en advarsel såfremt brugeren prøver at sætte modtagelsesdatofra til før d. 1/9-2013
+
+Testcase: 4.03
+Vores input: ModtagelseDato Start = 01-09-2012
+Forventet output: Fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - Ved indtastning af modtagelseDato slut og ikke modtagelseDato start indsættes  modtagelseDato slut ikke i Populationsarket</t></si><si><t>Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i Populationsarket hvor man kun indtaster modtagelseDato Slut.
+
+Testcase 4.06
+Vores input: modtagelsesdatoslut = 01-10-2018
+Forventet output: Dato gemt i Populationsarket
+Aktuel output: fejlbesked</t></si><si><t>Bug: Form 4 - Ved indtastning af modtagelseDato slut og ikke modtagelseDato start indsættes  modtagelseDato slut ikke i SpmSvar arket</t></si><si><t>HIgh</t></si><si><t>Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i SpmSvararket hvor man kun indtaster modtagelseDato Slut.
+
+Testcase 4.07
+Vores input: modtagelsesdatoslut = 01-10-2018
+Forventet output: Dato gemt i SpmSvararket
+Aktuel output: fejlbesked</t></si><si><t>Bug: Form 4 - Modtagelsedato Slut bytter dage og månder når der printes til populationsarket</t></si><si><t>Beskrivelse: Jf. kravet bør den afgrænsede periode (Modtagelsesdato slut) gemmes i Populationsarket
+
+Testcase: 4.10
+Vores input: ModtagelseDato Slut = 01-10-2018
+Forventet output:  ModtagelseDato Slut = 01-10-2018 i Populationsarket
+Aktuel output: 10-01-2018</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format mm-dd-yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.12
+Vores input: ModtagelseDato start = 10-15-2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: ModtagelseDato start = 10-15-2018 i Populationsarket</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format mm-dd-yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.13
+Vores input: Modtagelsesdato start = 10-15-2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 10-15-2018 i SpmSvar arket</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format mm-dd-yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 4.14
+Vores input: Modtagelsesdato start = 10-15-2013
+Forventet output: Fejl besked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format mm-dd-yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.15
+Vores input: ModtagelseDato slut = 10-15-2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: ModtagelseDato slut = 15-10-2018 i Populationsarket</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format mm-dd-yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.16
+Vores input: Modtagelsesdato slut = 10-15-2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 10-15-2018 i SpmSvar arket</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format mm-dd-yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (mm-dd-yyyy) i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 4.17
+Vores input: Modtagelsesdato slut = 10-15-2013
+Forventet output: Fejl besked 
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format dd/mm/yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.18
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: Intet printet i populationsarket
+Aktuel output: Modtagelsesdato start = 01/10/2013  i populationsarket</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format dd/mm/yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.19
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 01/10/2013  i SpmSvar arket</t></si><si><t>Bug: Form  4 - ModtagelseDato start med format dd/mm/yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy) i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 4.20
+Vores input: Modtagelsesdato start = 01/10/2013
+Forventet output: fejlbesked
+Aktuel output: Ingenfejlbesked</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format dd/mm/yyyy skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.21
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: Intet printet i populationsarket
+Aktuel output: Modtagelsesdato slut = 10-01-2014  i populationsarket</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format dd/mm/yyyy skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.22
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 01/10/2014  i SpmSvar arket</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format dd/mm/yyyy giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 4.23
+Vores input: Modtagelsesdato slut = 01/10/2014
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format (dd month yyyy) skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat (dd/mm/yyyy)  i Modtagelsesdato slut.  Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.24
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output:  Intet printet i populationsarket
+Aktuel output: Modtagelsesdato start = 01 oktober 2013</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format (dd month yyyy) skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.25
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato start = 01 oktober 2013</t></si><si><t>Bug: Form 4 - ModtagelseDato start med format (dd month yyyy) giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 4.26
+Vores input: Modtagelsesdato start = 01 oktober 2013
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format (dd month yyyy) skrives til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.27
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output:  Intet printet i populationsarket
+Aktuel output: Modtagelsesdato slut = 01 oktober 2014</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format (dd month yyyy) skrives til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.28
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output: Intet printet i SpmSvar arket
+Aktuel output: Modtagelsesdato slut = 01 oktober 2014</t></si><si><t>Bug: Form 4 - ModtagelseDato slut med format (dd month yyyy) giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste et ikke gyldigt datoformat i Modtagelsesdato slut. En fejl besked bør komme frem
+
+Testcase: 4.29
+Vores input: Modtagelsesdato slut = 01 oktober 2014
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - En ModtagelseDato slut som ligger før start datoen printes til Populationsarket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste en Modtagelsesdato slut som er før Modtagelsedata slut. Inputtet bør ikke kopieres til populationsarket
+
+Testcase: 4.30
+Vores input: Modtagelsesdato start = 31-10-2013 og Modtagelsesdato slut = 30-10-2013
+Forventet output:  Intet printet i populationsarket
+Aktuel output: Modtagelsesdato slut = 30-10-2013</t></si><si><t>Bug: Form 4 - En ModtagelseDato slut som ligger før start datoen printes til SpmSvar arket</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste en Modtagelsesdato slut som er før Modtagelsedata start. Inputtet bør ikke kopieres til SpmSvar arket
+
+Testcase: 4.31
+Vores input: Modtagelsesdato start = 31-10-2013 og Modtagelsesdato slut = 30-10-2013
+Forventet output:  Intet printet i SpmSvar
+Aktuel output: Modtagelsesdato slut = 30-10-2013</t></si><si><t>Bug: Form 4 - En ModtagelseDato slut som ligger før start datoen giver ikke en fejlbesked</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at indtaste en Modtagelsesdato slut som er før Modtagelsesdato start. En fejl besked bør komme frem
+
+Testcase: 4.32
+Vores input:  Modtagelsesdato start = 31-10-2013 og Modtagelsesdato slut = 30-10-2013
+Forventet output: fejlbesked
+Aktuel output: Ingen fejlbesked</t></si><si><t>Bug: Form 4 - Tilbage knappen fører tilbage til form 2 ikke form 3</t></si><si><t>Beskrivelse: Som bruger vil jeg forvente at blive sendt videre til den forrige form såfremt at der klikkes på tilbage knappen
+
+Testcase 4.34
+Vores input: Tryk på tilbage
+Forventet output: Frm003 vises
+Aktuel output: Frm002 vises</t></si><si><t>Bug: Form 4 - Formen initialiseres ikke med ModtagelseDato start som 01-09-2013</t></si><si><t>Beskrivelse: Jf. kravet bør d. 1 september 2013 være default i feltet txtModStart. Det vil sige at såfremt der ikke allerede er en værdi i SpmSvar arket bør denne fremgå som 01-09-2013
+
+Testcase 4.35
+Vores input: Initialiser formen uden noget i SpmSvar
+Forventet output: ModtagelsesDato Start sættes til 01-09-2013 i formen
+Aktuel output: Feltet er ikke udfyldt.</t></si><si><t>Bug: Form 3  -OptionButton2 is automatically ticked when form is initialized</t></si><si><t xml:space="preserve">Beskrivelse: I forbindelse med at jeg kommer til form 3 hvor der ikke er foretaget et valg i en tidligere besvarelse, vil jeg forvente at checkboksen ikke er markeret
+OptionButton2 is automatically ticked when form is initialized
+Testcase: 3.17
+</t></si><si><t>Bug: Form 5- You are not sent to frm027 when ticking these radiobuttons</t></si><si><t>Beskrivelse:Jf. kravet skal brugeren sendes videre til spørgsmål 4.a.2 (form 27)
+
+Testcase: 5.06
+Vores input: optionbutton1:False, optionbutton 2 True
+Forventet output: frm027
+Aktuel output: Not frm 027</t></si><si><t>Bug: Form 5  -OptionButton2 is automatically ticked when form is initialized</t></si><si><t xml:space="preserve">Beskrivelse: I forbindelse med at jeg kommer til form 5 hvor der ikke er foretaget et valg i en tidligere besvarelse, vil jeg forvente at checkboksen ikke er markeret
+OptionButton2 is automatically ticked when form is initialized
+Testcase: 5.14
+</t></si><si><t>Bug: Form 6 -OptionButton2, 4 and 6  are automatically ticked when form is initialized</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 6 hvor der ikke tidligere er foretaget at valg, forventer jeg at alle checkbokses ikke er markeret
+OptionButton2, 4 and 6 are automatically ticked when form is initialized
+Testcase: 6.18 , 6.20. ,  6.22</t></si><si><t>Bug: Form 7 - In sheet Regler: The cells Varighed_X Måneder and Varighed_X År are not set to empty for R0042, R0043, R0044, R0045, R0046</t></si><si><t>Beskrivelse: Jf. kravet skal "FOKO-kontrollen  sættes op som i Re-tracer (dvs. standard. Se regel 320, 321 og 513 i Retracer-Matricen). Dette indebærer, at RIM ikke beregner en forældelsesdato, der ligger senere end den af fordringshaver registrerede FOKO."
+Testcase: 7.12, 7.13, 7.16, 7.17, 7.20, 7.21, 7.24, 7.25, 7.28, 7.29</t></si><si><t>Bug: Form 7 - In sheet Regler: The rule R0039 should be deactivated</t></si><si><t>Beskrivelse: 
+
+Testcase: 7.09
+Vores input: OptionButton1 False, OptionButton2 False, OptionButton 3 True
+Forventet output: NEJ
+Aktuel output:</t></si><si><t>Bug: Form 7 - When not choosing any of the radiobuttons, there should pop up a warning message</t></si><si><t>Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Her bør en advarsel komme
+
+Testcase: 7.30
+Vores input: OptionButton1 False, OptionButton2 False, OptionButton 3 False
+Forventet output: Error message 
+Aktuel output: Error message did not pop up</t></si><si><t>Bug: Form 7 - Group G0001 is activated, it is not specified in the recuirements that it should be.</t></si><si><t>Jeg forventer at kun bestemte celler ændre sig ved at svare "Aldrig"  (Andre celler end hvis jeg svarer anderledes)
+
+Testcase: 7.41
+Vores input: OptionButton1 False, OptionButton2 False, OptionButton 3 True
+Forventet output: True
+Aktuel output: Grppering: "C2"</t></si><si><t>Bug: Form 8- When not choosing any of the radiobuttons, there should pop up a warning message</t></si><si><t>Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Her bør en advarsel komme
+
+Testcase: 8.13
+Vores input: OptionButton1 False, OptionButton2 False
+Forventet output: Error message 
+Aktuel output: Error message did not pop up</t></si><si><t>Bug: Form 8- When not choosing any of the radiobuttons, nothing should change in the sheets</t></si><si><t>Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Her bør der ikke ændres i arkene
+
+Testcase: 8.14
+Vores input: OptionButton1 False, OptionButton2 False
+Forventet output: True
+Aktuel output: SpmSvar "D18" is set to Nej</t></si><si><t>Bug: Form 8 -OptionButton1 is automatically ticked when form is initialized</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 8 hvor der ikke tidligere er foretaget at valg, forventer jeg at alle checkbokses ikke er markeret
+OptionButton1 is automatically ticked when form is initialized
+Testcase: 8.11</t></si><si><t>Bug: Form 9 -OptionButton1 is automatically ticked when form is initialized</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 9 hvor der ikke tidligere er foretaget at valg, forventer jeg at alle checkbokses ikke er markeret
+OptionButton1 is automatically ticked when form is initialized
+Testcase: 9.11</t></si><si><t>Bug: Form 9- When not choosing any of the radiobuttons, there should pop up a warning message</t></si><si><t>Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Her bør en advarsel komme
+
+Testcase: 9.13
+Vores input: OptionButton1 False, OptionButton2 False
+Forventet output: Error message 
+Aktuel output: Error message did not pop up</t></si><si><t>Bug: Form 9- When not choosing any of the radiobuttons, nothing should change in the sheets</t></si><si><t>Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Her bør der ikke ændres i arkene
+
+Testcase: 9.14
+Vores input: OptionButton1 False, OptionButton2 False
+Forventet output: True
+Aktuel output: SpmSvar "D18" is set to Nej</t></si><si><t>Bug: Form 10- Form 014 is not showing up as stated that it should in the requirements</t></si><si><t>Jf. kravet skal brugeren, når der vælges "Hvis antal dage kan angives", sendes til spørgsmål 9.a.2.2.1, hvor logikken foregår i samme form. Herefter sendes brugeren automatisk til Spørgsmål 10 (form 14) 
+
+Testcase: 10.1
+Vores input: OptionButton1 True, OptionButton2 False
+Forventet output: frm039
+Aktuel output: frm014</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing nothing in the "antal dage" field I'm expecting nothing should be written in the sheets</t></si><si><t>Meduim</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan undlade at indtaste antal dage, da grunden til at brugeren sendes til denne form er for at definere denne. Der bør ikke ændres noget i arkene
+
+Testcase: 10.40
+Vores input: antal dage = ""
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing "hej" in the "antal dage" field I'm expecting nothing should be written in the sheets</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan undlade at indtaste antal dage, da grunden til at brugeren sendes til denne form er for at definere denne. Der bør ikke ændres noget i arkene
+
+Testcase: 10.42
+Vores input: antal dage = "hej"
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing "1001" in the "antal dage" field I'm expecting a Error message to pop up</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan indsætte antal dage over 1000 (grænsen står med kommentar i regel arket)
+
+Testcase: 10.43
+Vores input: antal dage = "1001"
+Forventet output: Error Message
+Aktuel output: Error message did not pop up</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing "1001" in the "antal dage" field I'm expecting nothing should be written in the sheets</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan indsætte antal dage over 1000 (grænsen står med kommentar i regel arket) Der bør ikke ændres noget i arkene
+
+Testcase: 10.44
+Vores input: antal dage = "1001"
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing "-1001" in the "antal dage" field I'm expecting a Error message to pop up</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan indsætte antal dage under -1000 (grænsen står med kommentar i regel arket)
+
+Testcase: 10.45
+Vores input: antal dage = "-1001"
+Forventet output: Error Message
+Aktuel output: Error message did not pop up</t></si><si><t>Bug: Form 10- When setting optionbutton to true and writing "-1001" in the "antal dage" field I'm expecting nothing should be written in the sheets</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan indsætte antal dage over 1000 (grænsen står med kommentar i regel arket). Der bør ikke ændres noget i arkene
+
+Testcase: 10.46
+Vores input: antal dage = "-1001"
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>FF - Spørgeskema BUG - TC 7.12,7.13, 7.16, 7.17, 7.20, 7.21, 7.24, 7.25, 7.28, 7.29 - Måned og År varihederne ryddes ikke som de burde for R0042, R0043, R0044, R0045, R0046</t></si><si><t>Beskrivelse: jf. kravet skal Varighederne rydes hvis brugeren vælger "Aldrig"/OptionButton3. Det er kune "Dage" som ryddes, men "Måneder" og "År" ryddes ikke. 
+
+Testcase: 7.12, 7.13, 7.16, 7.17, 7.20, 7.21, 7.24, 7.25, 7.28, 7.29</t></si><si><t>FF - Spørgeskema BUG - TC 7.37 - Ingen kanpper må være valgt som default.</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 7 hvor jeg har valgt "ny besvarelse" i form 1, alle feltet være blank. OptionButton1 er sat til True som default. 
+
+Testcase: 7.37</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 7.30 - Brugeren forventer en fejlbesked hvis man ikke vælger en af de to valgmuligheder. </t></si><si><t>FF - Spørgeskema BUG - TC 7.42 - Gruppe G0001 aktiveres selvom dette ikke er specificeret i kravene</t></si><si><t>Jeg forventer at bestemte celler ændre sig ved at svare "Aldrig"  (Andre celler end hvis jeg svarer anderledes). Der ændres i Gruppe 1 selvom dette ikke står i kravene. 
+
+Testcase: 7.42
+Vores input: OptionButton1 False, OptionButton2 False, OptionButton 3 True
+Forventet output: True
+Aktuel output: Gruppering: "C2"</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 8.13 - Brugeren forventer en fejlbesked hvis man ikke vælger en af de to valgmuligheder. </t></si><si><t>FF - Spørgeskema BUG - TC 8.14 - Brugeren forventer at der ikke ændres i arkene hvis han/hun trykker OK uden at have valgt en af valgmulighederne</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 8.11 - OptionButton1 er sat til True som default. </t></si><si><t>FF - Spørgeskema BUG - TC 8.16 - Der ændres i populationsarket når brugeren trykker på tilbage-knappen</t></si><si><t>Som bruger ville jeg ikke forvente der sker ændringer når jeg trykker på tilbage knappen, da intet jeg har gjort i formen før jeg trykker tilbage burde have ændret arkene. 
+Dette kan potentielt overskrive ændringer for andre forms
+Pt. ændres i cellen "D18" i Populationsarket
+
+Testcase: 8.16</t></si><si><t>FF - Spørgeskema BUG - TC 9.11 -OptionButton1 er sat til True som default</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 9 hvor der ikke tidligere er foretaget at valg, forventer jeg at alle checkbokses ikke er markeret
+OptionButton1 er sat til true som default
+Testcase: 9.11</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 9.13 - Brugeren forventer en fejlbesked hvis man ikke vælger en af de to valgmuligheder. </t></si><si><t>FF - Spørgeskema BUG - TC 9.14 - Brugeren forventer ikke at der ændres i arkene hvis han/hun prøver at fortsætte uden at have valgt en af valgmulighederne</t></si><si><t>FF - Spørgeskema BUG - TC 9.16 - Der ændres i populationsarket når brugeren trykker på tilbage-knappen</t></si><si><t>Som bruger ville jeg ikke forvente der sker ændringer når jeg trykker på tilbage knappen, da intet jeg har gjort i formen før jeg trykker tilbage burde have ændret arkene. 
+Dette kan potentielt overskrive ændringer for andre forms
+Pt. ændres i cellen "D18" i Populationsarket
+
+Testcase: 9.16</t></si><si><t>FF - Spørgeskema BUG - TC 10.01 - Form 014 bliver ikke vist som den burde</t></si><si><t>Jf. kravet skal brugeren, når der vælges "Hvis antal dage kan angives", sendes til spørgsmål 9.a.2.2.1, hvor logikken foregår i samme form. Herefter sendes brugeren automatisk til Spørgsmål 10 (form 14) . Dette sker ikke. 
+
+Testcase: 10.01
+Vores input: OptionButton1 True, OptionButton2 False
+Forventet output: frm039
+Aktuel output: frm014</t></si><si><t>FF - Spørgeskema BUG - TC 10.40 - Som bruger ville jeg forventet at ved at vælge optionButton1 uden at indtaste et antal dage, at der sker en fejl og der derfor ikke ændres i arkene. Der sker ændringer.</t></si><si><t>Som bruger vil jeg ikke forvente at jeg kan undlade at indtaste antal dage. Der bør derfor ikke ændres noget i arkene hvis jeg laver denne fejl, men pt. ændres der i cellen "B16" i Populationsarket og "C2", "C3" i Gruppering-arket. 
+
+Testcase: 10.40
+Vores input: antal dage = ""
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>FF - Spørgeskema BUG - TC 10.40- Som bruger ville jeg forventet at ved at vælge optionButton1 og skrive "hej" antal dage, at der sker en fejl og der derfor ikke ændres i arkene. Der sker ændringer.</t></si><si><t>Som bruger vil jeg ikke forvente at jeg skrive et ord i antal dage. Der bør derfor ikke ændres noget i arkene hvis jeg laver denne fejl, men pt. ændres der i cellen "B16" i Populationsarket og "C2", "C3" i Gruppering-arket. 
+
+Testcase: 10.42
+Vores input: antal dage = "hej"
+Forventet output: True
+Aktuel output: SpmSvar:"D20", Population: "B16", "B17", Gruppering: C2,C3</t></si><si><t>FF - Spørgeskema BUG - TC 10.45- Når antal dage angives som "1001" forventer brugeren en fejlbesked da dette ikke er et gyldigt input</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 10.46 - Når antal dage angives som  "1001" forventer brugeren ikke der skrives i arkene da dette ikke er et tilladt input. </t></si><si><t>FF - Spørgeskema BUG - TC 10.45- Når antal dage angives som "-1001" forventer brugeren en fejlbesked da dette ikke er et gyldigt input</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 10.46 - Når antal dage angives som  "-1001" forventer brugeren ikke der skrives i arkene da dette ikke er et tilladt input. </t></si><si><t>FF - Spørgeskema BUG - TC 10.48- Der ændres i arkene når brugeren trykker på tilbage-knappen</t></si><si><t>Som bruger ville jeg ikke forvente der sker ændringer når jeg trykker på tilbage knappen, da intet jeg har gjort i formen før jeg trykker tilbage burde have ændret arkene. 
+Dette kan potentielt overskrive ændringer for andre forms
+Pt. ændres i cellerne: 
+SpmSvar: D20
+Population: B16, B17
+Regler: J43:J47, G43:G47
+
+Testcase: 10.48</t></si><si><t>FF - Spørgeskema BUG - TC 14.08/14.21/14.34/14.47/14.60 - R0040 sættes som aktiv hvilket ikke er et krav</t></si><si><t>Beskrivelse: Pt aktiverer spørgskemaet Regel R0040 når brugeren ikke vælger "ingen". Dette er ikke beskrevet i kravene. 
+
+Testcases: 14.08/14.21/14.34/14.47/14.60</t></si><si><t>FF - Spørgeskema BUG - TC 14.13 - R0067 aktiveres ikke når forfaldsdato vælges</t></si><si><t>Beskrivelse: Når brugeren vælger forfaldsdato skal R0067 aktiveres. Pt. Sættes regelen til NEJ hvilket ser ud til at skyldes at SRB-checkbox'en også skriver til R0067. 
+
+Testcase: 14.13
+Forventet: R0067 aktiveret = JA
+Forventet: R0067 aktiveret = NEJ</t></si><si><t>FF - Spørgeskema BUG - TC 4.46 - Ved valg af kun SRB burde R0067 blive deaktiveret.</t></si><si><t>Beskrivelse: Hvis forfaldsdato ikke vælges så skal regelen R0067  til "NEJ" men den sættes til "JA". Umiddelbart skyldes det at SRB fejlagtigt skriver til cellen. 
+
+Testcases: 14.46</t></si><si><t>FF - Spørgeskema BUG - TC 4.47 - Ved valg af kun SRB sættes R0063 til NEJ</t></si><si><t>Beskrivelse: Når SRB vælges skal R0063 aktiveres. Den deaktiveres pt. Hvilket umiddelbart skyldes at periodeSlut fejlagtigt skriver til cellen. 
+
+Testcases: 14.47</t></si><si><t>FF - Spørgeskema BUG - TC 14.75 - Ved valg af kun stiftelsesdato skal R0047 deaktiveres</t></si><si><t>Beskrivelse: Hvis forfaldsdato ikke vælges så skal regelen R0047  til "NEJ" men den sættes til "JA". Umiddelbart skyldes det at skiftelsesdato fejlagtigt skriver til cellen. 
+
+Testcases: 14.75</t></si><si><t>FF - Spørgeskema BUG - TC 14.76 - Ved valg af kun stiftelsesdato skal R0048 deaktiveres</t></si><si><t>Beskrivelse: Hvis forfaldsdato ikke vælges så skal regelen R0048  til "NEJ" men den sættes til "JA". Umiddelbart skyldes det at skiftelsesdato fejlagtigt skriver til cellen. 
+
+Testcases: 14.76</t></si><si><t>FF - Spørgeskema BUG - TC 14.77 - Ved valg af kun stiftelsesdato skal R0049 deaktiveres</t></si><si><t>Beskrivelse: Hvis forfaldsdato ikke vælges så skal regelen R0049  til "NEJ" men den sættes til "JA". Umiddelbart skyldes det at skiftelsesdato fejlagtigt skriver til cellen. 
+
+Testcases: 14.77</t></si><si><t>FF - Spørgeskema BUG - TC 14.78 - Ved valg af kun stiftelsesdato skal R0050 deaktiveres</t></si><si><t>Beskrivelse: Hvis forfaldsdato ikke vælges så skal regelen R0050  til "NEJ" men den sættes til "JA". Umiddelbart skyldes det at skiftelsesdato fejlagtigt skriver til cellen. 
+
+Testcases: 14.78</t></si><si><t>FF - Spørgeskema BUG - TC 14.146 - Ved valg af kun periode slut skal R0063 deaktiveres</t></si><si><t>Beskrivelse: Når SRB ikke vælges skal R0063 deaktiveres. Den aktiveres pt. Hvilket umiddelbart skyldes at periodeSlut fejlagtigt skriver til cellen. 
+
+Testcases: 14.146</t></si><si><t>FF - Spørgeskema BUG - TC 14.166 - Hvis brugeren kommer til 10b via. 9.a, skal der vises en besked før der fortsættes til spm 11</t></si><si><r><t>Beskrivelse: jf. kravet skal jeg vises en advarselsbok før jeg fortsætter fra 10.b til 11 når jeg har svaret "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>altid"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9
+
+Testcase: 14.166</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.167 - Hvis brugeren kommer til 10b via. 9.a, skal der vises en besked med bestemt besked</t></si><si><r><t>Beskrivelse: jf. kravet hvis jeg vælger "ingen" og har svaret "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>altid"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> skal der komme en advarsel frem før jeg forsætter til 11: ”RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO”.
+
+Testcase: 14.167</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.168 - Hvis brugeren kommer til 10b via. 9.b, skal der vises en besked før der fortsættes til spm 11</t></si><si><r><t>Beskrivelse: jf. kravet skal jeg vises en advarselsbok før jeg fortsætter fra 10.b til 11 når jeg har svaret "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>Ja"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b
+
+Testcase: 14.168</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.169 - Hvis brugeren kommer til 10b via. 9.b, skal der vises en besked med bestemt besked</t></si><si><r><t xml:space="preserve">Beskrivelse: jf. kravet hvis jeg vælger "ingen" og har svaret </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>"I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>Ja"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b skal der komme en advarsel frem før jeg forsætter til 11: ”RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO”.
+
+Testcase: 14.169</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.170 - Hvis brugeren kommer til 10b via. 9.b.2, skal der vises en besked før der fortsættes til spm 11</t></si><si><r><t>Beskrivelse: jf. kravet skal jeg vises en advarselsbok før jeg fortsætter fra 10.b til 11 når jeg har svaret "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>Ja"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b.2
+
+Testcase: 14.170</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.171 - Hvis brugeren kommer til 10b via. 9.b.2, skal der vises en besked med bestemt besked</t></si><si><r><t xml:space="preserve">Beskrivelse: jf. kravet hvis jeg vælger "ingen" og har svaret </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>"I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>Ja"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b.2 skal der komme en advarsel frem før jeg forsætter til 11: ”RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO”.
+
+Testcase: 14.171</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.172 - Hvis brugeren kommer til 10b via. 9.b.2.2, skal der vises en besked før der fortsættes til spm 11</t></si><si><r><t>Beskrivelse: jf. kravet skal jeg vises en advarselsbok før jeg fortsætter fra 10.b til 11 når jeg har svaret "</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>antal dage</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b.2.2
+
+Testcase: 14.172</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.171 - Hvis brugeren kommer til 10b via. 9.b.2.2, skal der vises en besked med bestemt besked</t></si><si><r><t xml:space="preserve">Beskrivelse: jf. kravet hvis jeg vælger "ingen" og har svaret </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>"I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>antal dage</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9.b.2.2 skal der komme en advarsel frem før jeg forsætter til 11: ”RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO”.
+
+Testcase: 14.173</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.174 - Hvis brugeren kommer til 10b via. 9.b.2.2.2 forventes en fejlbesked</t></si><si><t>Beskrivelse: jf. kravet hvis jeg har svaret "I visse tilfælde" og svaret "nej"  i spm 9b, "nej"  i spm 9b2 og "ved ikke"  i spm 9b22, så skal spørgeskemaet afslutte. Derfor forventer jeg som bruger at der vises en fejlbesked
+
+Testcase: 14.174</t></si><si><t>FF - Spørgeskema BUG - TC 14.175 - Hvis brugeren kommer til 10b via. 9.b.2.2.2 forventes der ikke at ske ændringer i arkene</t></si><si><r><t xml:space="preserve">Beskrivelse: Som bruger forventer jeg ikke at der ændres i arkene når jeg har indtastet en kombination som medfører en fejl - Jeg er kommet til 10.b efter at have svaret </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>"I visse tilfælde"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9 og </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>"ved ikke"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i 9.b.2.2
+
+Testcase: 14.175</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.176 - Hvis brugeren kommer til 10b via. 9.c forventes en fejlbesked</t></si><si><r><t>jf. kravet hvis jeg er kommet til 10.b. efter at have svaret</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> "aldrig"</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> i spm 9, så skal spørgeskemaet afslutte. Derfor forventer jeg som bruger at der vises en fejlbesked
+
+Testcase: 14.176</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.177 - Hvis brugeren kommer til 10b via. 9.c forventes der ikke at ske ændringer i arkene</t></si><si><r><t xml:space="preserve">Beskrivelse: Som bruger forventer jeg ikke at der ændres i arkene når jeg har indtastet en kombination som medfører en fejl - Jeg er kommet til 10.b efter at have svaret </t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve">"aldrig" </t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>i spm 9 
+
+Testcase: 14.177</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.178 - Brugeren ledes ikke videre til form 39 efter at have valgt "ingen"</t></si><si><t>Beskrivelse: jf. kravet skal jeg ledes til spm 10b når jeg svarer "ingen" hvor der vises en message boks. Når jeg trykker ok ledes jeg til spm 11 (frm039). Dette sker ikke pt. 
+
+Testcase: 14.178</t></si><si><t>FF - Spørgeskema BUG - TC 14.185 - Der skrives ikke "Nej" i "vil RIM beregne FOKO" når brugeren vælger "ingen"</t></si><si><t>Beskrivelse: Jf. kravet skal der skrives "Nej" som værdi ud for "Vil RIM beregne en tidligst mulig forældelsesdato?" i populationsarket når der vælges "Ingen" i spm 10
+
+Testcase: 14.185</t></si><si><t>FF - Spørgeskema BUG - TC 14.186 - Gruppe 2 deaktiveres ikke når brugeren vælger "ingen"</t></si><si><t>Beskrivelse: Jf. kravet skal gruppe 1 deaktiveres når der vælges "Ingen" i spm 10. Dette sker ikke.
+
+Testcase: 14.186</t></si><si><t>FF - Spørgeskema BUG - TC 14.214 - SRB burde vises før stiftelsesdato</t></si><si><t>Beskrivelse: Som bruger forventer jeg  at hvis jeg vælger SRB, stiftelsesdato, periodstartdato og periodeslutdato at jeg ledes igennem form 32 (SRB) først da dette er rækkefølgen de er præsenteret på i spm 10. 
+
+Testcase: 14.214</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 14.218 - Ved fejlbesked for ikke at have valgt noget bliver der alligevel ændret i arkene. </t></si><si><r><t xml:space="preserve">Beskrivelse: Som bruger forventer jeg ikke at jeg kan gå videre uden at aktivere en af checkboksne. Hvis jeg ikke vælger noget og trykker cidere bør der ikke ændres i arkene, men der ændres i reglerne og spmSvar alligevel. Specifikke celler som ændres: 
+</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>'SpmSvar:</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> C24, D24, E24, F24, G24, H24, I24
+</t></r><r><rPr><b/><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t>Regler:</t></r><r><rPr><sz val="11"/><color theme="1"/><rFont val="Calibri"/><family val="2"/><scheme val="minor"/></rPr><t xml:space="preserve"> G48, G49, G50, G51, G68, G52, G53, G54, G55, G69, G56, G57, G58, G59, G70, G60, G61, G62, G63, G64, G71, G65, G66, G67, G72, G41
+
+Testcase: 14.218</t></r></si><si><t>FF - Spørgeskema BUG - TC 14.219 - "Tilbage"-knappen leder ikke nødvendigvis tilbage til sidste slide.</t></si><si><t>Beskrivelse: Når jeg trykker "tilbage" kommer jeg tilbage til form 14, uanset hvilket slide jeg sidst var på. Det ville være rart at gå tilbage til den sidste slide jeg har set. 
+
+Testcase 14.219</t></si><si><t>FF - Spørgeskema BUG - TC 14.225 - Ved tidligere besvarelse hvor brugeren har svaret "Ingen" i spm 10, preloades dette svar ikke i formen</t></si><si><t>Beskrivelse: Som bruger forventer jeg evnetuelle tidligere besvarelse loades med formen. En tidligere besvarelse til spm 10 hvor brugeren har svaret "ingen" preloades ikke. 
+
+Testcase: 14.225</t></si><si><t>FF - Spørgeskema BUG - TC 13.09 - Regler aktiveres uden dette er beskrevet i kravene</t></si><si><t>Beskrivelse: Når brugeren angiver antal dage står der ikke noget i kravene om at reglerne R0042-R0046 skal aktiveres, men dette sker pt i koden. Det skal undersøges hvorvidt reglerne skal aktiveres eller ej. Hvis det er rigtigt at de aktiveres, skal det tilføjes til kravdokumentet. 
+
+Testcase 13.09</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 13.33 - Nyt foreslag til fejlbesked tekst hvis bruger efterlader "antal dage"-tekstfeltet blankt. </t></si><si><t>Beskrivelse: Hvis bruger vælger at angive antal dage men efterlader tekstfeltet tomt, kommer der pt en fejlbesked med teksten: "Antal dage er indtastet forkert". Det ville måske være mere sigende hvis fejlbeskeden i stedet var "Venligt indstast antal dage" el.lign. 
+
+Testcase 13.33</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 13.34 - Der sker ændringer i SpmSvar arket hvis der kommer en fejlbesked vedrørende blankt antal dage. </t></si><si><t>Beskrivelse: Hvis jeg som bruger efterlader antal dage blank og der derfor kommer en fejlbesked, ville jeg forvente at der ikke sker ændringer i arkene. Pt. Sker der ændringer i cellerne C23 og D23 hvor C23 er blot et tekstfelt uden funktionel betydning men D23 er brugerens svar på spørgmålet i formen
+
+Testcase: 13.34</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 13.36 - Der sker ændringer i SpmSvar arket hvis der kommer en fejlbesked vedrørende forkert indtastet antal dage. </t></si><si><t>Beskrivelse: Hvis jeg som bruger indtaster et ugyldigt input i feltet til antal dage ("hej") og der derfor kommer en fejlbesked, ville jeg forvente at der ikke sker ændringer i arkene. Pt. Sker der ændringer i cellerne C23 og D23 hvor C23 er blot et tekstfelt uden funktionel betydning men D23 er brugerens svar på spørgmålet i formen
+
+Testcase: 13.36</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 13.37 - Det er muligt at indtaste antal dage højere end 1000. </t></si><si><t>Beskrivelse: Ifølge en kommentar i arkene må antal data ikke overskride 1000 og brugeren ville forvente en fejlbesked hvis de intaster en højere værdi. Der kommer ikke en fejlbesked når brugeren indtaster 1001. 
+
+Testcase: 13.37</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 13.39 - Det er muligt at indtaste antal dage lavere end -1000. </t></si><si><t>Beskrivelse: Ifølge en kommentar i arkene må antal data ikke være under -1000 og brugeren ville forvente en fejlbesked hvis de intaster en lavere værdi. Der kommer ikke en fejlbesked når brugeren indtaster -1001. 
+
+Testcase: 13.38</t></si><si><t>FF - Spørgeskema BUG - TC 12.04 - Mangler aktivering af G0002</t></si><si><t>Beskrivelse: Jf. kravet skal gruppe 2 aktiveres når der vælges "Ja" i formen. Dette sker ikke. 
+
+Testcase: 12.04</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 12.09 - Ja er default på formen selvom der ikke burde være nogle default værdier i spøregskemaet. </t></si><si><t xml:space="preserve">Beskrivelse: Optionbutton 1 (Ja) er valgt som default, så hvis man kommer til form 12 efter at have valgt "ny besvarelse", så er "Ja" allerede valgt. </t></si><si><t>FF - Spørgeskema BUG - TC 12.11 - Man kan gå videre uden at vælge et svar</t></si><si><t xml:space="preserve">Beskrivelse: Det er pt. muligt at gå videre til næste form uden at vælge enten Ja eller Nej. (Note: Dette kan kun bevises vha test koden da formen pt har valgt Ja som default og det er ikke muligt at fravælge Ja uden at trygge på nej) </t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 12.14 - Der sker ændringer i arkene når man trykker på tilbage knappen. </t></si><si><t>Beskrivelse: Som bruger ville jeg ikke forvente der sker ændringer når jeg trykker på tilbage knappen, da intet jeg har gjort i formen før jeg trykker tilbage burde have ændret arkene. 
+Dette kan potentielt overskrive ændringer for andre forms
+Pt. ændres i cellerne "G43:G47", "G40" i regel-arket, i celle "B16" i Populationsarket, og celle C22 i SpmSvar-arket. 
+
+Testcase: 12.14</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 12.15 - Der ændres i regel aktivering selvom der står intet om dette i kravene. </t></si><si><t xml:space="preserve">Beskrivelse: Der står intet i kravene om at der skal ændres regler i denne form. Pt når man svarer ja, så ændres aktivering af R0042-R0046 samt R0039. </t></si><si><t>FF - Spørgeskema BUG - TC 11.04 - Mangler aktivering af G0002</t></si><si><t>Beskrivelse: Jf. kravet skal gruppe 2 aktiveres når der vælges "Ja" i formen. Dette sker ikke. 
+
+Testcase: 11.04</t></si><si><t>FF - Spørgeskema BUG - TC 11.08 - Tidligere besvarelser med OptionButton2 = True loades ikke ind i formen.</t></si><si><t xml:space="preserve">Beskrivelse: Hvis jeg har valgt OptionButton 2 (nej) i en tidligere besvarelse, så loades dette ikke ind i formen. Formen sætter i stedet OptionButton1 som valgt. </t></si><si><t>FF - Spørgeskema BUG - TC 11.09 - optionButton 1 er valgt som default selvom der ikke burde være nogle default værdier i spørgeskemaet</t></si><si><t>Beskrivelse: Optionbutton 1 (Ja) er valgt som default, så hvis man kommer til form 12 efter at have valgt "ny besvarelse", så er "Ja" allerede valgt. 
+
+Testcase: 11.09</t></si><si><t>FF - Spørgeskema BUG - TC 11.11 - Man kan gå videre uden at vælge et svar</t></si><si><t>Beskrivelse: Det er pt. muligt at gå videre til næste form uden at vælge enten Ja eller Nej. (Note: Dette kan kun bevises vha test koden da formen pt har valgt Ja som default og det er ikke muligt at fravælge Ja uden at trygge på nej) 
+
+Testcase: 11.11</t></si><si><t>FF - Spørgeskema BUG - TC 11.13 - Brugeren forventer at komme tilbage til form 10 når han/hun vælger "Tilbage"</t></si><si><t>Beskrivelse: Brugeren ville forvente at komme tilbage til form 10 når han/hun trykker på tilbage knappen. Pt. Sender den brugeren tilbage til form 7. 
+
+Testcase: 11.13</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 11.14 - Der sker ændringer i arkene når man trykker på tilbage knappen. </t></si><si><t>Beskrivelse: Som bruger ville jeg ikke forvente der sker ændringer når jeg trykker på tilbage knappen, da intet jeg har gjort i formen før jeg trykker tilbage burde have ændret arkene. 
+Dette kan potentielt overskrive ændringer for andre forms
+Pt. ændres i cellerne "G43:G47", "G40" i regel-arket
+
+Testcase: 11.14</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - TC 11.15 - Der ændres i regel aktivering selvom der står intet om dette i kravene. </t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 -  Group 1 is not activated when optionbutton1 or optionbutton2 is chosen</t></si><si><t>Beskrivelse: jf. kravet bør gruppe 1 aktiveres
+
+Testcase: 28.01, 28.123, 29.01, 29.104, 30.1, 30.93, 31.1, 31.84, 32.1, 32.113
+Vores input: Optionbutton1 = True or OptionButton2 = True
+Forventet output:JA
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When checkbox3 is ticked the value 1095 is not saved in Spmsvar</t></si><si><t>Beskrivelse: Som bruger vil jeg forvente at svaret bliver registreret i SpmSvar således at den bliver gemt som en del af den samlede konfiguration
+
+Testcase: 28.02, 29.02, 30.2, 31.2, 32.2
+Vores input: checkbox3 = True
+Forventet output:1095
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32-  Nothing is printed in population sheet when filling in textfields with 10 and choosing optionbutton1 or optionbutton2. It should print "JA" in a field.</t></si><si><t>Beskrivelse: Jfr. Kravet.  Der angives et ”JA” i populationen under ”Vil RIM beregne en tidligst mulig forældelsesdato?”
+
+Testcase: 28.33, 28.145. 29.33, 29.126, 30.33, 30.115, 31.33 , 31.106, 32.33, 32.135
+Forventet output: JA
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When you write negative values in the "antal dage" field (textbox1) error messages should pop up</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente det er muligt at fortsætte efter at have indtastet negativt antal dage i textbox1. Her vil jeg forvente at en fejlbesked kommer frem.
+Testcase: 28.54, 28.157, 29.50, 29.139, 30.48, 30.127, 31.47 , 31.118, 32.52, 32.147
+Input: -10
+Forventet output: Error Message
+Aktuel output: Error meassage did not pop up</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When you write negative values in the "antal dage" field (textbox2) error message should pop up</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente det er muligt at fortsætte efter at have indtastet negativt antal dage i textbox2. Her vil jeg forvente at en fejlbesked kommer frem.
+Testcase:28.56, 28.159, 29.52, 29.141, 30.50, 30.129, 31.49 , 31.120, 32.54, 32.149
+Input: -10
+Forventet output: Error Message
+Aktuel output: Error meassage did not pop up</t></si><si><t>FF - Spørgeskema BUG - Form28, 29, 30, 31, 32 - When you write negative values in the "antal dage" field (textbox1) error message should pop up and nothing should be written to any sheets</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente det er muligt at fortsætte med negativt antal dage indtastet i Textbox1. Der bør ikke ændres noget i arkene men det gør der, hvilket skyldes at det ikke registreres som en fejl.
+Testcase: 28.55, 28.158, 29.51, 29.140, 30.49, 30.138, 31.48 , 31.119, 32.53, 32.148
+Input: -10
+Forventet output: True
+Aktuel output: 'SpmSvar: C71, C72, C73, D71, D72, D73, 
+Population: True, 
+Regler: J48, J49, J50, J51, J68, G48, G49, G50, G51, G68
+Gruppering: True</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When you write negative values in the "antal dage" field (textbox2) error message should pop up and nothing should be written to any sheets</t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente det er muligt at fortsætte med negativt antal dage indtastet i Textbox2. Der bør ikke ændres noget i arkene men det gør der, hvilket skyldes at det ikke registreres som en fejl.
+Testcase: 28.57, 28.160, 29.53, 29.142, 30.51, 30.130, 31.50 , 31.121, 32.55, 32.150
+Input: -10
+Forventet output: True
+Aktuel output: 'SpmSvar: C71, C72, C73, D71, D72, D73, 
+Population: True, 
+Regler: J48, J49, J50, J51, J68, G48, G49, G50, G51, G68
+Gruppering: True</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When you press "ved Ikke", "NEJ" should be written in population</t></si><si><t>Beskrivelse: Jfr. Kravet.  Der angives et ”NEJ” i populationen under ”Vil RIM beregne en tidligst mulig forældelsesdato?”
+
+Testcase: 28.58, 28.89, 28.169, 28.200, 29.54, 29.77, 29.146, 29.169, 30.71, 30.133, 30.52, 30.152, 31.51, 31.66, 31.123, 31.138, 32.56, 32.83, 32.157, 32.184
+Forventet output: NEJ
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - When you press "ved Ikke", and "optionbutton1" is ticked  "'Før det valgte stamdatafelt" should be saved in Spmsvar</t></si><si><t>Beskrivelse: Jeg forventer at mine tidligere svar gemmes i SpmSvar selvom jeg trykker "ved ikke".
+
+Testcase: 28.59, 29.55, 30.53, 31.52 ,32.57
+Forventet output: 'Før det valgte stamdatafelt
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32: When you press "ved Ikke", and "textbox1" is filled in antal dage  should be saved in Spmsvar</t></si><si><t>Beskrivelse: Jeg forventer at mine svar gemmes i SpmSvar selvom jeg trykker "ved ikke".
+
+Testcase: 28.60, 29.56, 30.54, 31.53 ,32.58
+Forventet output: 10
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32: When you press "ved Ikke" on either checkbox1 or checkbox2 these answers should be saved in spmsvar.</t></si><si><t>Beskrivelse: Jeg forventer at mine svar gemmes i SpmSvar selvom jeg trykker "ved ikke".
+
+Testcase: 28.61, 28.92, 28.203, 28.172, 29.57, 29.80, 29.149, 29.172, 30.55, 30.72, 30.136, 30.155, 31.54, 31.69, 31.126, 31.141, 32.59, 32.86, 32.160, 32.187
+Forventet output: Ved ikke
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32-  Group 1 is not deactivated when "Ved Ikke" is chosen.</t></si><si><t>Beskrivelse: Jfr. Kravet.Gruppe 1 deaktiveres når "Ved ikke" vælges
+
+Testcase: 28.62, 28.90, 28.173, 28.201, 29.78, 29.140, 29.150 29.170, 30.56, 30.72,30.137, 30.153, 31.55, 31.67, 31.127, 31.139, 32.60, 32.84, 32.161, 32.185
+Forventet output: NEJ
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32-  Wrong message is popping up when "Ved Ikke" is chosen</t></si><si><t>Beskrivelse: Jfr. Kravet.  Inden spørgeskema-logikken går videre fra spørgsmål 10.a.1.1.2 til spørgsmål 11, skal der fremkomme en boks, hvor følgende fremgår ”RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO”.  
+Testcase:28.63-28.66,28.93-28.96,28.174-28.177, 28.204-28.207, 29.59-29.62, 29.81-29.84, 29.151-29.154, 29.173-29.176, 30.57-30.60, 30.75-30.78, 30.138-30.141, 30.156-30.159, 31.56-31.59, 31.70-31.73, 31.128-31.131, 31.142-31,145, 32.61-32.64, 32.87-32.90, 32.162-32.165, 32.188-32.191
+Forventet output: RIM kan ikke beregne et tidligst muligt forældelsestidspunkt den del af populationen, hvor der ikke er indsendt FOKO. Den følgende konfiguration angår derfor kun fordringer, hvor der er indsendt FOKO
+Aktuel output: Indsæt en gyldig værdi i antal dage</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32-  Wrong message is popping up when "Ved Ikke" is choosen and t"aldrig has been choosen in spm9</t></si><si><t>Beskrivelse: jfr kravet. Hvis fordringshaver har svaret ”aldrig” i spm. 9, kan der ikke opsættes en FLEX-filter konfiguration for populationen.   
+Testcase: 28.68, 28.98, 28.179, 28.208, 29.64, 29.86, 29.156, 29.178, 30.62, 30.80, 30.143, 30.159, 31.61 , 31.75, 31.133 , 31.147, 32.66, 32.92, 32.167, 32.193
+Forventet output: Der kan ikke opsættes en FLEX-filter konfiguration for populationen
+Aktuel output: Indsæt en gyldig værdi i antal dage</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - Hvis der er svaret "I visse tilfælde" i spørgsmål 9 og hvis der er svaret "Ja" i enten 9.b.1, 9.b.2.1 eller 9.b.2.2.1 skal brugeren ledes til spørgsmål 11, vilket motsvarer frm039</t></si><si><t>Beskrivelse: jfr kravet. Hvis der er svaret "I visse tilfælde" i spørgsmål 9 og hvis der er svaret "Ja" i enten 9.b.1, 9.b.2.1 eller 9.b.2.2.1 skal brugeren ledes til spørgsmål 11
+Testcase: 28.69-28.72, 28.99-28.102, 28.180-28.183, 28.210-28.213, 29.65-29.68, 29.87-29.90, 29.157-29.160, 29.179-29.182, 30.63-30.66, 30.81-30.84, 30.144-30.147, 30.162-30.165, 31.62-31.65 , 31.76-31.79, 31.134-31.137, 31.148-31.151, 32.67-32.70, 32.93-32.96, 32.168-32.171, 32.194-32.197
+Forventet output: frm039
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 28, 32 - If you have answered "ved Ikke" and answered stiftelsesdato on frm014 next step should be frm029</t></si><si><t>Beskrivelse: If you have answered "ved Ikke" and answered stiftelsesdato on frm014 next step should be frm029
+Testcase:28.73-28.76, 28.103-28.106, 28.184-28.187, 28.214-28.217, 32.71-32.74,32.97-32.100, 32.198-32.201, 32.172-32.175
+Forventet output: frm029
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 32 - If you have answered "ved Ikke" and answered periode startdato on frm014 next step should be frm030</t></si><si><t>Beskrivelse: If you have answered "ved Ikke" and answered periode startsdato on frm014 next step should be frm030
+Testcase:28.73-28.76, 28.103-28.106, 28.184-28.187, 28.214-28.217, 29.69-29.72, 29.92-29.95, 29.161-29.164, 29.183-29.186, 32.75-32.78,32.101-32.104, 32.202-32.205, 32.176-32.179
+Forventet output: frm030
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 32 - If you have answered "ved Ikke" and answered periode slutdato on frm014 next step should be frm031</t></si><si><t>Beskrivelse: If you have answered "ved Ikke" and answered periode slutdato on frm014 next step should be frm031
+Testcase:28.73-28.76, 28.103-28.106, 28.184-28.187, 28.214-28.217, 29.73-29.76, 29.96-29.99, 29.165-29.168, 29.187-29.190, 30.85-30.88,30.67-30.70, 30.148-30.151, 30.166-30.169, 32.79-32.82,32.105-32.108, 32.206-32.209, 32.180-32.183
+Forventet output: frm031
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 28- If you have answered "ved Ikke" and answered SRB on frm014 next step should be frm032</t></si><si><t>Beskrivelse: If you have answered "ved Ikke" and answered SRB on frm014 next step should be frm032
+Testcase: 28.85-28.88, 28.115-28.118, 28.196-28.198, 28.226-28.229
+Forventet output: frm032
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 28, 29, 30, 31, 32 - Wrong message pops up when none of optionbutton1 and optionbutton2 is chosen</t></si><si><t>Beskrivelse: Wrong message pops up when none of optionbutton1 and optionbutton2 is chosen
+
+Testcase: 28.120, 29.100, 30.89, 31.80 ,32.109
+Forventet output: (To be defined)
+Aktuel output: Indsæt en gyldig værdi i antal dage</t></si><si><t>FF - Spørgeskema BUG - Form 28- I forbindelse med at jeg kommer til form 28 hvor jeg har valgt "optionbutton1" i en tidligere besvarelse, skal eventuel forrige valg pre-loades ind i formen</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 28 hvor jeg har valgt "optionbutton1" i en tidligere besvarelse, skal eventuel forrige valg pre-loades ind i formen
+
+Testcase: 28.230
+Forventet output: True
+Aktuel output: False</t></si><si><t>FF - Spørgeskema BUG - Form 28- I forbindelse med at jeg kommer til form 28 hvor jeg har valgt "optionbutton2" i en tidligere besvarelse, skal eventuel forrige valg pre-loades ind i formen</t></si><si><t>Beskrivelse: I forbindelse med at jeg kommer til form 28 hvor jeg har valgt "optionbutton2" i en tidligere besvarelse, skal eventuel forrige valg pre-loades ind i formen
+
+Testcase: 28.232
+Forventet output: True
+Aktuel output: False</t></si><si><t>FF - Spørgeskema BUG - Form 28 - Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer</t></si><si><t>Beskrivelse: Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer
+
+Testcase: 28.238-28.240, 28.249-28.251
+Forventet output: True
+Aktuel output: Regler: G48, G49, G50, G51, G68</t></si><si><t>FF - Spørgeskema BUG - Form 29 - Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer</t></si><si><t>Beskrivelse: Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer
+
+Testcase: 29.199-29.201, 29.10-29.212
+Forventet output: True
+Aktuel output: Regler: G52, G53, G54, G55, G69</t></si><si><t>FF - Spørgeskema BUG - Form 30 - Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer</t></si><si><t>Beskrivelse: Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer
+
+Testcase: 30.178-30.180, 30.189-30.191
+Forventet output: True
+Aktuel output: Regler: G56, G57, G58, G59, G70</t></si><si><t>FF - Spørgeskema BUG - Form 31 - Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer</t></si><si><t>Beskrivelse: Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer
+
+Testcase: 31.160-31.162 , 31.171-31.173
+Forventet output: True
+Aktuel output: Regler: G,60 G61, G62, G63,G71</t></si><si><t>FF - Spørgeskema BUG - Form 32 - Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer</t></si><si><t>Beskrivelse: Jeg forventer at kun bestemte celler ændre sig uanset hvad jeg svarer
+
+Testcase: 32.218-32.220 , 32.229-32.231
+Forventet output: True
+Aktuel output: Regler: G64, G65, G66, G67,672</t></si><si><t>FF - Spørgeskema BUG - Form 28-  When ticking  SRB, stiftelsesdato, periodstartdato og periodeslutdato in form 14 I'm expecting form 32 (SRB) to show up when I press videre on form 28</t></si><si><t>Beskrivelse: Som bruger forventer jeg  at hvis jeg vælger SRB, stiftelsesdato, periodstartdato og periodeslutdato at jeg ledes igennem form 32 (SRB) først. Dette sker ikke. 
+
+Testcase: 28.42, 
+Forventet output: frm032</t></si><si><t>FF - Spørgeskema BUG - Form 32-  Som bruger forventer jeg  at hvis jeg vælger stiftelsesdato, periodstartdato og periodeslutdato at jeg ledes igennem form 29 (stiftelsesdato) først. Dette sker ikke.</t></si><si><t>Beskrivelse: Som bruger forventer jeg  at hvis jeg vælger stiftelsesdato, periodstartdato og periodeslutdato at jeg ledes igennem form 29 (stiftelsesdato) først. Dette sker ikke. 
+
+Testcase: 32.41
+Forventet output: frm029</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 32-  Som bruger forventer jeg  at hvis jeg vælger periodstartdato og periodeslutdato at jeg ledes igennem form 30 (periodstartdato) først. Dette sker ikke. </t></si><si><t>Beskrivelse: Som bruger forventer jeg  at hvis jeg vælger periodstartdato og periodeslutdato at jeg ledes igennem form 30 (periodstartdato) først. Dette sker ikke. 
+
+Testcase: 32.42
+Forventet output: frm030</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 32-  Som bruger forventer jeg  at hvis jeg vælger periodeslutdato at jeg ledes igennem form 31(periodeslutdato).Dette sker ikke. </t></si><si><t>Beskrivelse: Som bruger forventer jeg  at hvis jeg vælger periodeslutdato at jeg ledes igennem form 31(periodeslutdato).Dette sker ikke. 
+
+Testcase: 32.40
+Forventet output: frm031</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 26 - Det er ikke muligt at undlade start dato.  </t></si><si><t>Beskrivelse: Ifølge kravene står der ikke noget om at man ikke må undstade start datoen i intervallet (kun indtaste en slut dato). Pt. crasher koden hvis brugeren kun indtaster en slut dato. 
+
+Testcases: 
+26.30-26.33
+26.79-26.82
+26.128-26.131
+26.278-26.181
+26.226-26.229
+
+Vores input: Start datoen i intervallet er tomt mens slut datoen er sat til 10-09-2018.
+Forventet output: Blank start dato, slut dato = 10-09-2018
+Aktuel output: Applicationscrash</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 26 - Der sker ændringer i arkene hvis jeg som bruger begår fejlen at ikke vælge en checkbox. </t></si><si><t>Beskrivelse: Som bruger vil jeg ikke forvente at det er muligt at forsætte uden at have valgt minimum 1 checkbox. Derfor burde der ikke ske ændringer i arkene hvis jeg som bruger gør dette. Der sker ændringer. 
+
+Testcases: 23.272
+
+Vores input: Ingen valgte checkboxes
+Forventet output: Ingen ændringer da det er en fejl
+Aktuel output: Ændringer i følgende celler:
+SpmSvar: C7, D8, E8, F8, D9, E9, F9, D10, E10, F10, D11, E11, F11, D12, E12, F12
+Population: B6, B7, B8, B9, B10, B11, B12, B13, B14, B15</t></si><si><t>FF - Spørgeskema BUG - Form 26 - Start datoer fra tidligere besvarelse loades med forkert dato format</t></si><si><t>Beskrivelse: Som bruger forventer jeg evnetuelle tidligere besvarelse loades med formen. Når en tidligere indtastet start dato loades ind i formen byttes der om på dag og måned. Gælder alle start dato felter
+
+Testcase: 26.274, 26.277, 26.280, 26.283, 26.286
+
+Vores input: Start dato = 10-09-2018
+Forventet output: Start dato = 10-09-2018
+Aktuel onput: Start dato = 09-10-2018</t></si><si><t>FF - Spørgeskema BUG - Form 26 - Slut datoer fra tidligere besvarelse loades med forkert dato format</t></si><si><t>Beskrivelse: Som bruger forventer jeg evnetuelle tidligere besvarelse loades med formen. Når en tidligere indtastet slut dato loades ind i formen byttes der om på dag og måned. Gælder alle slut dato felter
+
+Testcase: 26.275, 26.278, 26.281, 26.284, 26.287
+
+Vores input: Slut dato = 10-09-2018
+Forventet output: Slut dato = 10-09-2018
+Aktuel onput: Slut dato = 09-10-2018</t></si><si><t>FF - Spørgeskema BUG - Form 39 - Som bruger forventer jeg at mit svar gemmes i SpmSvar</t></si><si><t>Beskrivelse: Som bruger forventer jeg at min besvarelse i spm 11 gemmes i SpmSvar. Dette sker ikke pt. Note når formen initialiseres læses der fra cellerne D63 og D64 - hvilket indikerer at svarene burde være gemt her, men det bliver de ikke. 
+
+Testcase: 39.01, 39.03</t></si><si><t>FF - Spørgeskema BUG - Form 39 - Back button kan give brugeren en uheldig oplevelse</t></si><si><t>Beskrivelse: Som bruger kan man komme til spm 11 af mange veje, men tilbage knappen er statisk sat til form 14  (spm 10). Jf kravene kan man også komme til spm 11 via spm 9, hvilket betyder at brugeren kan risikere at blive sendt til en form som de aldrig har set og ikke skal svare på. Tilbage knappen for denne form skal være afhængig af brugeren aktuelle vej igennem spørgeskemaet. 
+
+Testcase: 39.07</t></si><si><t>FF - Spørgeskema BUG - Form 39 - Checkbox 4 loades ikke med tidligere besvarelser</t></si><si><t>Beskrivelse: Som bruger forventer jeg at tidligere besvarelser loades ind i formen. Checkbox 4 bliver ikke initialiseret korrekt.
+
+Testcase: 39.09</t></si><si><t>FF - Spørgeskema BUG - Form 39 - Checkbox 5 loades ikke med tidligere besvarelser</t></si><si><t>Beskrivelse: Som bruger forventer jeg at tidligere besvarelser loades ind i formen. Checkbox 4 bliver ikke initialiseret korrekt.
+
+Testcase: 39.10</t></si><si><t>FF - Spørgeskema BUG - Form 21- Group 6 is not deactivated when typing in textbox1 pressing videre</t></si><si><t>Beskrivelse: Gruppe 6 deaktiveres.
+Testcase: 21.09, 21.18, 21.27
+Forventet output: NEJ
+Aktuel output: JA</t></si><si><t>FF - Spørgeskema BUG - Form 21-  Error message did not popup when writing "-10" in textbox1</t></si><si><t>Beskrivelse: Error message did not popup when writing "-10" in textbox1
+Testcase: 21.28
+Forventet output: To be defined message
+Aktuel output: Messege did not pop up</t></si><si><t>FF - Spørgeskema BUG - Form 21-  Error message did not popup when writing "abcd" in textbox1</t></si><si><t>Beskrivelse:  Error message did not popup when writing "abcd" in textbox1
+Testcase: 21.30
+Forventet output: NEJ
+Aktuel output: Messege did not pop up</t></si><si><t>FF - Spørgeskema BUG - Form 21-  Error message did not popup when writing nothing  in textbox1</t></si><si><t>Beskrivelse: Error message did not popup when writing nothing  in textbox1
+Testcase: 21.32
+Forventet output: NEJ
+Aktuel output: Messege did not pop up</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 21-  When writing "-10" in textbox1 nothing should change in the sheets </t></si><si><t>Beskrivelse: When writing "-10" in textbox1 nothing should change in the sheets 
+Testcase: 21.29
+Forventet output: True
+Aktuel output: 'SpmSvar: C55, D55
+Population: True
+Regler: H73, H74, G73, G74, G75, G76
+Gruppering: C6, C7</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 21-  When writing "abcd" in textbox1 nothing should change in the sheets </t></si><si><t>Beskrivelse: When writing "abcd" in textbox1 nothing should change in the sheets 
+Testcase: 21.31
+Forventet output: True
+Aktuel output: 'SpmSvar: C55, D55
+Population: True
+Regler: H73, H74, G73, G74, G75, G76
+Gruppering: C6, C7</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 21-  When writing nothing in textbox1 nothing should change in the sheets </t></si><si><t>Beskrivelse: When writing nothing in textbox1 nothing should change in the sheets 
+Testcase: 21.33
+Forventet output: True
+Aktuel output: 'SpmSvar: C55, D55
+Population: True
+Regler: H73, H74, G73, G74, G75, G76
+Gruppering: C6, C7</t></si><si><t>FF - Spørgeskema BUG - Form 21-  When comming from form037 and and pressing "Tilbage" in form021, the user should come back to form 027</t></si><si><t>Beskrivelse: When comming from form037 and and pressing "Tilbage" in form021, the user should come back to form 027
+Testcase: 21.43
+Forventet output: form027
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 46-  Hvis man har svaret Stiftelsesdato og Periodeslut skal man fortsætte til form 38</t></si><si><t>Beskrivelse: Hvis man har svaret Stiftelsesdato og Periodeslut skal man fortsætte til form 38
+Testcase: 46.5
+Forventet output: form038
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 10-  When choosing "ved ikke" Im expecting to go to frm039</t></si><si><t>Beskrivelse: When choosing "ved ikke" Im expecting to go to frm039
+Testcase: 10.02
+Forventet output: form039
+Aktuel output: Incorrect</t></si><si><t>FF - Spørgeskema BUG - Form 10-  Nothing is written in SpmSheet when writing a number in antal dage</t></si><si><t>Beskrivelse: Nothing is written in SpmSheet when writing a number in antal dage
+Testcase: 10.12, 10.18 , 10.24
+Forventet output: "number"
+Aktuel output: Empty</t></si><si><t>FF - Spørgeskema BUG - Form 10-  When choosing "ved ikke" nothing happens becouse a warning message pops up saying "Antal dage kan ikke være mere end 1000"</t></si><si><t>Beskrivelse: When choosing "ved ikke" nothing happens becouse a warning message pops up saying "Antal dage kan ikke være mere end 1000"
+Testcase: 10.24-10.36
+Forventet output: Writes to spm sheet and rules deactivates and activates
+Aktuel output: Warning messege: "Antal dage kan ikke være mere end 1000"</t></si><si><t xml:space="preserve">FF - Spørgeskema BUG - Form 10-  When writing 1001 or -1001 I am expecting a warning to show up </t></si><si><t>Beskrivelse: When writing 1001 or -1001 I am expecting a warning to show up.
+Testcase: 10.43-10.46
+Forventet output: Writes to spm sheet and rules deactivates and activates
+Aktuel output: Warning messege: "Antal dage kan ikke være mere end 1000"</t></si><si><t>FF - Spørgeskema BUG - Form 11-  R0042-R0046 are activated and R0040, doesn't say in the krav that these rules should be activated?</t></si><si><t xml:space="preserve">Beskrivelse: R0042-R0046 are activated and R0040, doesn't say in the krav that these rules should be activated?
+Testcase: 11.15
+</t></si><si><t>FF - Spørgeskema BUG - Form 12-  R0042-R0046 are activated and R0040, doesn't say in the krav that these rules should be activated?</t></si><si><t xml:space="preserve">Beskrivelse: R0042-R0046 are activated and R0040, doesn't say in the krav that these rules should be activated?
+Testcase: 12.15
+</t></si><si><t>FF - Spørgeskema BUG - Form 2- Når man udfylder fordringshaverID med et tal foranstillet med nuller e.g. '0021' vises kun '21' i SpmSheet</t></si><si><t>Beskrivelse: Hvis man udfylder fordringshaverID med et tal foranstillet med nuller e.g. '0021' vises kun '21' i SpmSheet på trods af at cellen har værdien 0021. Det virker for PopSheet, så det handler blot om at formatere cellen i SpmSheet på samme måde.
+Testcase: 2.02
+Forventet output: 0021
+Aktuel output: 21</t></si><si><t>FF - Spørgeskema BUG - Form 2- Når man vælger at indlæse tidligere svar hvor startdato er blank sættes startdatoen ikke tilbage til default (01-09-2013)</t></si><si><t>Beskrivelse: ' "Indlæs tidligere svar 1t4". Der tjekkes op mod værdien i spørgeskemaet i stedet for værdien i de tidligere svar. Kan derfor løses med at ændre:
+If txtModtStart.Value= "" Then
+til:
+If Worksheets("SpmSvar").Range("D4:D4").Value = "" Then
+
+Testcase: 2.29
+Forventet output: "01-09-2013"
+Aktuel output: ""</t></si><si><t>FF - Spørgeskema BUG - Form 3- Caption til radiobutton 1 er ikke identisk med krav</t></si><si><t>Beskrivelse: Caption skal ifølge krav være "At der enten foretages en tilpasning af den allerede afgrænsede modtagelsesperiode"
+
+Testcase: 3.1
+Forventet output: "At der enten foretages en tilpasning af den allerede afgrænsede modtagelsesperiode"
+Aktuel output: "At der foretages en tilpasning af den allerede afgrænsede modtagelsesperiode, eller"</t></si><si><t>FF - Spørgeskema BUG - Form 5- Svar til Label1 gemmes automatisk i SpmSvar selvom formen fejler</t></si><si><t>Beskrivelse: Formen gemmer altid Label1 i SpmSvar selvom det ikke forventes når formen fejler.
+Worksheets("SpmSvar").Range("C13:C13").Value = Controls("Label1").Caption bør derfor flyttes ned efter fejltjek.
+
+Testcase: 5.09</t></si><si><t>FF - Spørgeskema BUG - Form 7- Svar til Label1 gemmes automatisk i SpmSvar selvom formen fejler</t></si><si><t>Beskrivelse: Formen gemmer altid Label1 i SpmSvar selvom det ikke forventes når formen fejler.
+Worksheets("SpmSvar").Range("C17:C17").Value = Controls("Label1").Caption bør derfor flyttes ned efter fejltjek.
+
+Testcase: 7.30</t></si><si><t>FF - Spørgeskema BUG - Form 8- Svar til Label1 gemmes automatisk i SpmSvar selvom formen fejler</t></si><si><t>Beskrivelse: Formen gemmer altid Label1 i SpmSvar selvom det ikke forventes når formen fejler.
+Worksheets("SpmSvar").Range("C18:C18").Value = Controls("Label1").Caption bør derfor flyttes ned efter fejltjek.
+
+Testcase: 8.14</t></si><si><t>FF - Spørgeskema BUG - Form 26- Vælg mindst én dato fungerer i stedet som vælg alle datoer</t></si><si><t>Beskrivelse: Selvom man har udfyldt en af datofelterne får man stadig fejlmeddelelsen: "Vælg som minimum et stamdatofelt for at gå videre"
+Kan fixes ved at ændre:
+If Not (Forfaldsdato And SRB And Stiftelsesdato And PeriodeStartdato And PeriodeSlutdato)
+til:
+If Not (Forfaldsdato Or SRB Or Stiftelsesdato Or PeriodeStartdato Or PeriodeSlutdato)
+
+Testcase: 26.01</t></si><si><t>Form</t></si><si><t>Testcases</t></si><si><t>Spørsmål</t></si><si><t>14.166-14.178</t></si><si><t>Not described in requirements what should happen when choosing "ingen" in form 14 and i visse tillfælde in spm9</t></si><si><t xml:space="preserve">    Worksheets("SpmSvar").Range("D6:D6").Value = OptionButton2.Caption
+    frm002.txtModtStart.Value = "01-09-2013"
+    Worksheets("SpmSvar").Range("D4:D4").Value = frm002.txtModtStart.Value
+    Worksheets("Population").Range("B4:B4").Value = frm002.txtModtStart.Value
+    frm002.txtModtSlut.Value = ""
+    Worksheets("SpmSvar").Range("E4:E4").Value = frm002.txtModtSlut.Value
+    Worksheets("Population").Range("B5:B5").Value = frm002.txtModtSlut.Value</t></si><si><t>Spørg Jesper</t></si><si><t>If Forfaldsdato.Value = True And txtFFSlut = "" Then txtFFSlut = Replace(Date, ".", "-")
+    If SRB.Value = True And txtSRBslut = "" Then txtSRBslut = Replace(Date, ".", "-")
+    If Stiftelsesdato.Value = True And txtSTIslut = "" Then txtSTIslut = Replace(Date, ".", "-")
+    If PeriodeStartdato.Value = True And txtPSTslut = "" Then txtPSTslut = Replace(Date, ".", "-")
+    If PeriodeSlutdato.Value = True And txtPSLslut = "" Then txtPSLslut = Replace(Date, ".", "-")</t></si><si><t>Grupperinger ændrer sig. Det er underligt at Gruppe 1 sættes til "NEJ". Jeg ville forvente at Gruppe 2 sættes til "JA"</t></si><si><t>Spørg Martin</t></si><si><t>Bug der skal opdateres i ny github</t></si><si><t>Ny bug for at tjekke github</t></si></sst>
